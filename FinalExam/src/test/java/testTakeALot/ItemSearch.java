@@ -150,7 +150,7 @@ public class ItemSearch extends BasePage{
 			System.out.println("Cart Value is displayed correctly");
 			Assert.assertTrue(true);
 		}else System.out.println("Cart Value is displayed incorrectly");
-		
+
 		driver.manage().deleteAllCookies();
 
 
@@ -174,7 +174,7 @@ public class ItemSearch extends BasePage{
 		int TruePriceOfExcelItem = Integer.parseInt(formattedPriceExcelItem);
 		System.out.println("The True formatted price of " +Brand + " is "+ currency.format(TruePriceOfExcelItem));
 		tLandingPage.cleanup();
-		//Mycart.SwitchToNewTab();
+
 
 		Iselection.selecAddToCart();
 		Mycart.GoToCart();
@@ -182,14 +182,11 @@ public class ItemSearch extends BasePage{
 		Thread.sleep(10000);
 		int TrueExcelQuantity = Integer.parseInt(Quantity);
 
-		
+
 		int totalExcelPrice = TruePriceOfExcelItem*TrueExcelQuantity;
-//		public int GetTotalPrice(int quantity, int unitPrice) {
-//			return quantity*unitPrice;
-//			
-//		}
+
 		System.out.println("The total price of " +Brand + " is "+currency.format(totalExcelPrice));
-		
+
 
 		String CartValue = Mycart.PriceOfCartItems2();
 		System.out.println(CartValue +" The cart value read by the locator");
@@ -197,16 +194,16 @@ public class ItemSearch extends BasePage{
 		System.out.println(CartPrice + " When the R is cut");
 		int TrueCartPrice = Integer.parseInt(CartPrice);
 		System.out.println(TrueCartPrice + " When it's cast to int");
-		
+
 		System.out.println("The price of formatted item price is  "+ currency.format(TrueCartPrice));
-		
+
 
 
 		if(TrueCartPrice==totalExcelPrice) {
 			System.out.println("The True Cart Price is displayed correctly");
 			Assert.assertTrue(true);
 		}else System.out.println("The True Cart Price is displayed incorrectly");
-		
+
 		driver.manage().deleteAllCookies();
 
 
@@ -223,7 +220,7 @@ public class ItemSearch extends BasePage{
 
 	}
 
-	//@AfterSuite
+	@AfterSuite
 	public void cleanup() {
 		tLandingPage.cleanup();
 
